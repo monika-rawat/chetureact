@@ -1,0 +1,20 @@
+.Not-found{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color:cornsilk;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+
+  .bg{
+    background-color:darkcyan;
+  }
+
+  .Adduser{
+   
+    width: 67%;
+    padding-left: 439px;
+   }
