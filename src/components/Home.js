@@ -47,7 +47,7 @@ const Home =() =>{
                     <td>
                         <Link  className="btn btn-primary m-2" to ={`/User/${user.id}`}>view</Link>
                         <Link  className="btn btn-outline-primary m-2" to ={`/Edituser/${user.id}`}>Edit</Link>
-                        <Link  className="btn btn-danger" onClick={() => deleteUser(user.id)}> Delete</Link>
+                        <Link  className="btn btn-danger" to ={`/`} onClick={() => deleteUser(user.id)}> Delete</Link>
                     </td>
                 </tr>
             ))

@@ -13,7 +13,7 @@ const User = () =>{
         phone : "",
         website: "",
     });
-  const { id} = useParams();
+  const {id} = useParams();
   useEffect(() => {
       
       loadUsers();

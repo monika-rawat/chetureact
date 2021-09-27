@@ -22,16 +22,16 @@ const Edituser =() =>{
     
 
     useEffect(() => {
-        loadUsers();
+        loadUser();
     }, []);
 
    const onSubmit = async e => {
       e.preventDefault();
-      await axios.put(`http://localhost:3003/users/${id}`);
+      await axios.put(`http://localhost:3003/users/${id}`, user);
       history.push("/");
    };
 
-   const loadUsers = async () =>{
+   const loadUser = async () =>{
     const result = await axios.get(`http://localhost:3003/users/${id}`);
     setUser(result.data);
    };
@@ -51,7 +51,7 @@ const Edituser =() =>{
   <br></br>
   <div class="form-group">
     <label for="email">email </label>
-    <input type="text" class="form-control" value={email} name="email"onChange={e =>onInputChange(e)}/>
+    <input type="text" class="form-control" value={email} name="email" onChange={e =>onInputChange(e)}/>
   </div>
   <div class="form-group">
     <label for="phone">phone</label>
@@ -64,9 +64,9 @@ const Edituser =() =>{
   </div>
   <br></br>
 
-  <button type="submit" class="btn btn-warning">Submit</button>
+  <button class="btn btn-warning">Update User</button>
 </form>
-  )
+  );
    };
 
 export default Edituser;
