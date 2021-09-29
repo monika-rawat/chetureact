@@ -1,8 +1,11 @@
-import { Axios } from "axios/lib/axios";
+// import { Axios } from "axios/lib/axios";
 import axios from "axios";
 import React ,{useState} from "react";
 import { useHistory } from "react-router-dom";
 
+
+
+const userUrl = "http://localhost:8001/users";
 const AddUser =() =>{
 
   let history = useHistory();
@@ -20,10 +23,11 @@ const AddUser =() =>{
 
    const onSubmit = async e => {
       e.preventDefault();
-      await axios.post("http://localhost:3003/users", user);
-      history.push("/")
+       await axios.post(`${userUrl}/add`, user);
+      history.push("/");
    };
 
+ 
   return(
     <form className="Adduser" onSubmit={e => onSubmit(e)}>
   <div class="form-group">
@@ -57,3 +61,10 @@ const AddUser =() =>{
    };
 
 export default AddUser;
+
+
+
+
+
+
+

@@ -1,20 +1,20 @@
-import React,{useState, useEffect} from "react";
-import  {Link, NavLink} from "react-router-dom";
+import React,{useState, useEffect, setData} from "react";
+import  {Link} from "react-router-dom";
 import axios  from "axios";
+const userUrl = "http://localhost:8001/users";
 
 const Home =() =>{
  const [users, setUser] = useState([]);
 
  useEffect(() => {
-     loadUsers();
-     
+  loadUsers();
  }, []);
 
  const loadUsers = async() =>{
    const result = await  axios.get("http://localhost:3003/users");
    setUser(result.data.reverse());
  };
-
+//  const getUsers = async() => 
  const deleteUser = async id=>{
 
   await axios.delete(`http://localhost:3003/users/${id}`);
