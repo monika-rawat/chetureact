@@ -11,6 +11,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AddUser from './components/AddUser';
 import Edituser from './components/Edituser';
 import User from './components/User';
+import axios from 'axios';
+
 
 function App() {
   return (
