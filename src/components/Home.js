@@ -1,4 +1,4 @@
-import React,{useState, useEffect, setData, setState} from "react";
+import React,{useState, useEffect, setData, setState, getUserById} from "react";
 import  {Link} from "react-router-dom";
 import axios  from "axios";
 // const userUrl = "http://localhost:8001/users";
@@ -10,52 +10,29 @@ const Home =() =>{
   loadUsers();
  }, []);
 
+// <-------get------
+
  const loadUsers = () => {
-  return fetch(`http://localhost:8001/users`)
+  return fetch(`http://localhost:8001/users/`)
   .then((response) => response.json())
   .then((data) => setUser(data));
-      
-}
-
-  // Simple POST request with a JSON body using fetch
-  // const loadUsers = () => {
-  //   return fetch(`http://localhost:8001/users`)
-  //   .then((response) => response.json())
-  //   .then((json) => setUser(json)); 
-  //   // console.log(res);
-  
-  //   }
-            
-   
-      // setUser(result.reverse());
-    
+  }
 
 
-//  const loadUsers = async() =>{
-//   const result = await fetch("http://localhost:8001/users").then(res=>res.json())
-
-//   .then(json=>{
-
-//     // setUser(json)
-
-//     console.log(json)})
-
-//   .catch((e)=>{
-
-//     console.log("erroe = " +e);
-
-//    })
-// // console.log(result);
-//   // setUser(result.reverse());
-// };
- 
-//  const getUsers = async() => 
+// <--delete------
  const deleteUser = async id=>{
 
-  await axios.delete(`http://localhost:3003/users/${id}`);
+  await axios.delete(`http://localhost:8001/users/$id`);
   loadUsers();
  };
    
+// const [ updateList] = useState(useState);
+
+// const deleteUser = (e) => {
+//  const name = e.target.getAttribute("name")
+//   updateList(list.filter(item => item.name !== name));
+// };
+
  
  return(
         <div className="container">
@@ -83,8 +60,8 @@ const Home =() =>{
                    
                     <td>
                         <Link  className="btn btn-primary m-2" to ={`/User/${user.id}`}>view</Link>
-                        <Link  className="btn btn-outline-primary m-2" to ={`/Edituser/${user.id}`}>Edit</Link>
-                        <Link  className="btn btn-danger" to ={`/`} onClick={() => deleteUser(user.id)}> Delete</Link>
+                        <Link  className="btn btn-outline-primary m-2" to ={`/Edituser/${user._id}`}>Edit</Link>
+                        <Link  className="btn btn-danger" to ={`/`} onClick={() => deleteUser(user._id)}> Delete</Link>
                     </td>
                 </tr>
             ))
