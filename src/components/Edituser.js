@@ -3,7 +3,7 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams} from "react-router-dom";
 
-const Edituser =() =>{
+const Edituser=function() {
 
   let history = useHistory();
   const { id } = useParams();
@@ -33,9 +33,16 @@ const Edituser =() =>{
 
    const loadUser = async () =>{
     const result = await axios.get(`http://localhost:8001/users/${id}`);
+    console.log(result, "monika");
     setUser(result.data);
+  
    };
-
+  
+  
+   const Edituser = async()=>{
+    return await axios.put(`http://localhost:8001/users/${id}`, user);
+    
+     }
 
   return(
     <form className="Adduser" onSubmit={e => onSubmit(e)}>

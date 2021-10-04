@@ -14,15 +14,16 @@ const Home =() =>{
 
  const loadUsers = () => {
   return fetch(`http://localhost:8001/users/`)
-  .then((response) => response.json())
-  .then((data) => setUser(data));
+  .then((response) => response.json( ))
+  .then((data) => { console.log(data)
+    setUser(data)});
   }
 
 
 // <--delete------
- const deleteUser = async id=>{
-
-  await axios.delete(`http://localhost:8001/users/$id`);
+ const deleteUser = async (id)=>{
+console.log(id);
+  await axios.delete(`http://localhost:8001/users/${id}`);
   loadUsers();
  };
    

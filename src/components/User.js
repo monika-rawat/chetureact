@@ -20,7 +20,7 @@ const User = () =>{
   }, []);
   
   const loadUsers = async () =>{
-      const res = await axios.get(`http://localhost:3003/users/${id}`);
+      const res = await axios.get(`http://localhost:8001/users/${user.id}`);
       setUser(res.data);
 
   };
@@ -30,7 +30,7 @@ const User = () =>{
           <Link className="btn btn-primary" to="/" >
               back to home
           </Link>
-          <h1 className="display-4">User Id:{id}</h1>
+          <h1 className="display-4">User Id:{user.id}</h1>
           <hr></hr>
 
        <ul className="list-group w-50">
